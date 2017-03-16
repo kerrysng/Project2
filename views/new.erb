@@ -1,0 +1,29 @@
+
+<div class="img-container">
+  <h1>Member's galleries</h1>
+
+    <% @galleries.each do |photo| %>
+    <div class="img-wrapper">
+      <h2>
+      <a href="/galleries/<%= photo.id %>">
+      <%= photo.name %>
+      </a>
+      </h2>
+
+      <img src="<%= photo.image_url %>" alt="">
+    </div>
+
+    <% end %>
+</div>
+
+<div class="form">
+<form action="/galleries" method="post">
+  <label for="">name</label>
+  <input type="text" name="name">
+
+  <label for="">Photo</label>
+  <input type="text" name="image_url">
+
+  <button>Submit</button>
+</form>
+</div>
