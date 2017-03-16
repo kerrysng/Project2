@@ -7,7 +7,7 @@
 
 <% if logged_in? %>
 <a href="/galleries/<%= @photo.id %>/edit">edit</a>
-<img src= "galleries/<%= @photo.image_url%>" >
+<img src= "<%= @photo.image_url%>" >
 <% end %>
 
 <% @comments.each do |comment| %>
