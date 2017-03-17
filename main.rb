@@ -1,11 +1,12 @@
 # require 'pry'
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
 require 'pg'
 require_relative 'database_config'
 require_relative 'models/user'
 require_relative 'models/photo'
 require_relative 'models/comment'
+require_relative  'models/exercise'
 
 
 enable :sessions
@@ -30,8 +31,15 @@ get '/' do
 end
 
 get '/exercises/new' do
-  erb :new
+  # @exercise = Exercise.all
+  erb :workout
 end
+
+# post '/exercises' do
+#   exercise = Exercise.new
+#   exercise.name = params[:name]
+#   exercise.video_url = params[:video_url]
+# end
 
 get '/galleries/new' do
   @galleries = Photo.all
@@ -44,7 +52,7 @@ post '/galleries' do
   photo.image_url = params[:image_url]
 
   if photo.save
-    redirect '/'
+    redirect '/galleries/new'
    else
     erb :new
  end
@@ -64,6 +72,13 @@ get '/galleries/:id' do
   @photo = Photo.find(params[:id])
   @comments = @photo.comments
   erb :show
+end
+
+get '/galleries/:id/edit' do
+  redirect '/galleries/new' if !logged_in?
+
+  @photo = Photo.find(params[:id])
+  erb :edit
 end
 
 delete '/galleries/:id' do

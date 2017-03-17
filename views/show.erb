@@ -5,10 +5,13 @@
   <button>delete</button>
 </form>
 
+<div class="wrapper">
+
 <% if logged_in? %>
 <a href="/galleries/<%= @photo.id %>/edit">edit</a>
 <img src= "<%= @photo.image_url%>" >
 <% end %>
+</div>
 
 <% @comments.each do |comment| %>
   <p> <%= comment.body %> </p>

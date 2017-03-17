@@ -5,11 +5,13 @@
   <title>Team Barbedu</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
 </head>
+
 <body>
+
   <ul class="topnav">
     <img class="logo" src="/logo.jpg"
     <li><a href="/">Home</a></li>
-    <li><a href="/exercises">All Exercises</a></li>
+    <li><a href="/exercises/new">Workouts</a></li>
     <% if logged_in? %>
       <li><a href="/galleries/new">Galleries</a></li>
       <li><a href="/logout">Logout</a></li>
@@ -18,11 +20,7 @@
       <li><a href="/sessions/new">Log In</a></li>
     <% end %>
   </ul><br>
-  <!-- <header>
-    <div class="cover">
-      <img src="/barbedu_icon.jpg" alt="">
-    </div>
-  </header> -->
+
 
 
   <%= yield %>

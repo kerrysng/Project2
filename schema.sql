@@ -15,3 +15,9 @@ CREATE TABLE comments (
   body TEXT,
   photo_id INTEGER
 );
+
+CREATE TABLE exercises (
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(300) NOT NULL,
+  video_url TEXT
+);

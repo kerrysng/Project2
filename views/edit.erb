@@ -1,0 +1,13 @@
+<h2>Edit photo</h2>
+
+<form action="/galleries/<%= @photo['id'] %>" method="post">
+  <input type="hidden" name="_method" value="put">
+
+  <label for="">name</label>
+  <input name="name" type="text" value="<%= @photo['name'] %>">
+
+  <label for="">image url</label>
+  <input name="image_url" type="text" value="<%= @photo['image_url'] %>">
+
+  <button>update</button>
+</form>
